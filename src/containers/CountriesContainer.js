@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import CountrySelectComponent from "../components/CountrySelectComponent"
+import CountryDetailsComponent from "../components/CountryDetailsComponent";
 import FavouritesComponent from "../components/FavouritesComponent";
 
 
@@ -7,9 +8,10 @@ import FavouritesComponent from "../components/FavouritesComponent";
 const CountriesContainer = () => {
 
     const [countries, setCountries] = useState([]);
+    const [selectedCountryName, setSelectedCountryName] = useState("");
 
     const getCountries = () => {
-        console.log("Getting COuntries");
+        //console.log("Getting Countries");
         fetch(`https://restcountries.eu/rest/v2/all`)
         .then((res) => {
             return res.json();
@@ -23,12 +25,24 @@ const CountriesContainer = () => {
         getCountries();
     }, []);
 
+    const getSelectedCountryName = (countryName) => { 
+
+        setSelectedCountryName(countryName);
+
+    } 
+
+    const country = countries.find((country) => {
+
+        return country.name === selectedCountryName;
+            
+    });
+
     if( !countries ) return null;
 
     return (
         <>
         <h1>Countries</h1>
-            {/* <CountrySelectComponent countriesData={countries}/> */}
+        <CountrySelectComponent countriesData={countries} getSelectedCountryName={getSelectedCountryName}/>
         </>
     )
 

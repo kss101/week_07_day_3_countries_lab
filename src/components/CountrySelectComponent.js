@@ -1,23 +1,27 @@
-import CountryDetailsComponent from "./CountryDetailsComponent";
 
-const CountrySelect = ({countriesData}) => {
 
-    const countryNodes = countriesData.map((country, index) => {
+const CountrySelect = ({countriesData, getSelectedCountryName}) => {
 
-        let name = country.name;
-        let flag = country.flag;
-        let key = index;
+    const countrySelectNodes = countriesData.map((country) => {
 
         return(
-            <CountryDetailsComponent name={name} flag={flag} key={key} />
+            <option value={country.name}>{country.name}</option>
         )
+    
     })
+
+    const handleChange = (event) => {
+
+        getSelectedCountryName(event.target.value)
+
+    }
 
     return(
         <>  
-            <select>
-                {countryNodes}
+            <select onChange={handleChange}>
+                {countrySelectNodes}
             </select>
+
         </>
     )
 }
