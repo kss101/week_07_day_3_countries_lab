@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import CountrySelectComponent from "../components/CountrySelectComponent"
 import CountryDetailsComponent from "../components/CountryDetailsComponent";
 import FavouritesComponent from "../components/FavouritesComponent";
+import PopulationComponent from "../components/PopulationComponent";
 
 
 
@@ -29,7 +30,7 @@ const CountriesContainer = () => {
 
         setSelectedCountryName(countryName);
 
-    } 
+    };
 
     const country = countries.find((country) => {
 
@@ -37,13 +38,12 @@ const CountriesContainer = () => {
             
     });
 
-    console.log("Selected country object is:", country);
-
     if( !countries ) return null;
 
     return (
         <>
         <h1>Countries</h1>
+        <PopulationComponent countriesData={countries} />
         <CountrySelectComponent countriesData={countries} getSelectedCountryName={getSelectedCountryName}/>
         <CountryDetailsComponent countryDetails={country} />
 
@@ -52,9 +52,5 @@ const CountriesContainer = () => {
 
 
 }
-
-    
-
-
 
 export default CountriesContainer;
