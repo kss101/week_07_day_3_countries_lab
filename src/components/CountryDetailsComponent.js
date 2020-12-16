@@ -1,8 +1,9 @@
-const CountryDetails = ({name, flag, key}) => {
+const CountryDetails = ({countryDetails}) => {
 
     return(
         <>
-           <option value="{name}">{name}</option>
+        <h2>{countryDetails.name}</h2>
+        <img src={countryDetails.flag} />
         </>
     )
 

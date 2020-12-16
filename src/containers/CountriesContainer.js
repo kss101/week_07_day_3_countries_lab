@@ -37,12 +37,16 @@ const CountriesContainer = () => {
             
     });
 
+    console.log("Selected country object is:", country);
+
     if( !countries ) return null;
 
     return (
         <>
         <h1>Countries</h1>
         <CountrySelectComponent countriesData={countries} getSelectedCountryName={getSelectedCountryName}/>
+        <CountryDetailsComponent countryDetails={country} />
+
         </>
     )
 
