@@ -38,6 +38,9 @@ const CountriesContainer = () => {
             
     });
 
+
+
+
     if( !countries ) return null;
 
     return (
@@ -46,6 +49,7 @@ const CountriesContainer = () => {
         <PopulationComponent countriesData={countries} />
         <CountrySelectComponent countriesData={countries} getSelectedCountryName={getSelectedCountryName}/>
         <CountryDetailsComponent countryDetails={country} />
+        <FavouritesComponent countryDetails={country} />
 
         </>
     )
