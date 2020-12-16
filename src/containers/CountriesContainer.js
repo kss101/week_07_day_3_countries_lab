@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
-//import CountriesContainer from "./containers/CountriesContainer"
+import CountrySelectComponent from "../components/CountrySelectComponent"
+import FavouritesComponent from "../components/FavouritesComponent";
 
 
 
@@ -25,7 +26,10 @@ const CountriesContainer = () => {
     if( !countries ) return null;
 
     return (
+        <>
         <h1>Countries</h1>
+            {/* <CountrySelectComponent countriesData={countries}/> */}
+        </>
     )
 
 
