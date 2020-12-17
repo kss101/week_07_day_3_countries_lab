@@ -1,5 +1,5 @@
 const CountryDetails = ({countryDetails}) => {
-
+    if (!countryDetails) return null; // this is the line we needed to stop undefined from ruining our day
     return(
         <>
             <h2>{countryDetails.name}</h2>
